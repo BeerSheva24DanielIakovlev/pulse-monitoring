@@ -70,6 +70,7 @@ public class Main {
     }
 
     private static int getRandomPulseValue(long patientId) {
+        @SuppressWarnings("unused")
         int valueRes = patientIdPulseValue.computeIfAbsent(patientId,
 				k -> getRandomNumber(MIN_PULSE_VALUE, MAX_PULSE_VALUE));
 		if (chance(JUMP_PROB)) {

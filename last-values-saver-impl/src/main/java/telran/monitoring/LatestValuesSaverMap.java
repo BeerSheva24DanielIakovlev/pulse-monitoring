@@ -12,6 +12,7 @@ public class LatestValuesSaverMap extends AbstractDataSaverLogger{
     }
 
     private HashMap<Long, List<SensorData>> history = new HashMap<>();
+    @SuppressWarnings("unused")
     @Override
     public void addValue(SensorData sensorData) {
        history.computeIfAbsent(sensorData.patientId(), (k) -> new LinkedList<SensorData>()).add(sensorData);
@@ -41,6 +42,7 @@ public class LatestValuesSaverMap extends AbstractDataSaverLogger{
         }
     }
 
+    @SuppressWarnings("unused")
     @Override
     public void clearAndAddValue(long patientId, SensorData sensorData) {
        List<SensorData> patientHistory = history.computeIfAbsent(patientId, k -> new LinkedList<>());
