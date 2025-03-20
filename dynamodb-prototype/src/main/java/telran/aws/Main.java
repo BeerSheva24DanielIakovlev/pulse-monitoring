@@ -1,6 +1,9 @@
 package telran.aws;
 
+
+
 import java.util.HashMap;
+
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 import software.amazon.awssdk.services.dynamodb.model.PutItemRequest;
@@ -13,8 +16,7 @@ public class Main {
         Builder request =  PutItemRequest.builder();
         request = request.tableName("pulse_values");
         client.putItem(request.item(getMap()).build());
-    };
-    
+    }
     static HashMap<String, AttributeValue> getMap() {
         SensorData sensorData = new SensorData(3,80,System.currentTimeMillis());
         HashMap<String, AttributeValue>  map = new HashMap<>(){{
